@@ -21,3 +21,8 @@ CVSubset/
 *.jpg
 *.zip
 __pycache__/
+
+flame-env/
+
+NADIRPlots.zip/
+unzip.py/
