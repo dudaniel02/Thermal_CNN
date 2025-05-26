@@ -1,0 +1,17 @@
+# ---- project ignores ----
+flame-env/                 # your virtual-env
+__pycache__/
+*.pyc
+*.pyo
+*.ipynb_checkpoints
+
+# ---- dataset ----
+CVSubset/                  # whole dataset folder
+*.TIFF                     # any stray thermal frames
+*.tiff
+*.JPG                      # colour-mapped copies
+*.jpg
+
+# ---- large logs / checkpoints ----
+checkpoints/
+runs/
