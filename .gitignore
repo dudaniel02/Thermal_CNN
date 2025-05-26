@@ -15,3 +15,9 @@ CVSubset/                  # whole dataset folder
 # ---- large logs / checkpoints ----
 checkpoints/
 runs/
+
+CVSubset/
+*.tiff
+*.jpg
+*.zip
+__pycache__/
