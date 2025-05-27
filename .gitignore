@@ -11,8 +11,8 @@ checkpoints/
 runs/
 
 CVSubset/
-*.tiff
-*.jpg
+
+
 *.zip
 __pycache__/
 
