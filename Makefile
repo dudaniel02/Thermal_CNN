@@ -1,4 +1,3 @@
-.PHONY: prep train eval analysis report all
 
 # Path to your HannaHammock plots
 ROOT := NADIRPlots/HannaHammock
