@@ -5,12 +5,6 @@ __pycache__/
 *.pyo
 *.ipynb_checkpoints
 
-# ---- dataset ----
-CVSubset/                  # whole dataset folder
-*.TIFF                     # any stray thermal frames
-*.tiff
-*.JPG                      # colour-mapped copies
-*.jpg
 
 # ---- large logs / checkpoints ----
 checkpoints/
