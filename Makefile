@@ -1,28 +1,32 @@
+.PHONY: prep train eval analysis report all
 
-# Path to your HannaHammock plots
-ROOT := NADIRPlots/HannaHammock
+# Default data root; override with `make DATA_ROOT=...`
+DATA_ROOT ?= NADIRPlots/HannaHammock
 
 prep:
 	python data_prep.py \
-	  --input_dirs "$(ROOT)"/plot*/duringburn \
+	  --input_dirs "$(DATA_ROOT)/plot1/duringburn/geo_thermal_tiff_celsius" \
+	               "$(DATA_ROOT)/plot2/duringburn/geo_thermal_tiff_celsius" \
 	  --output_dir masks \
 	  --threshold 50.0 \
 	  --workers 16
 
 train:
 	python train.py \
-	  --data_dirs "$(ROOT)"/plot*/duringburn \
+	  --data_dirs "$(DATA_ROOT)/plot1/duringburn/geo_thermal_tiff_celsius" \
+	              "$(DATA_ROOT)/plot2/duringburn/geo_thermal_tiff_celsius" \
 	  --mask_dir masks \
 	  --runs_dir runs \
 	  --ckpt_dir checkpoints \
-	  --epochs 200 \
+	  --epochs 2 \
 	  --batch_size 16
 
 eval:
 	python eval_viz.py \
-	  --data_dirs "$(ROOT)"/plot*/duringburn \
-	  --ckpt checkpoints/epoch200.pth \
+	  --data_dirs "$(DATA_ROOT)/plot1/duringburn/geo_thermal_tiff_celsius" \
+	              "$(DATA_ROOT)/plot2/duringburn/geo_thermal_tiff_celsius" \
 	  --mask_dir masks \
+	  --ckpt checkpoints/epoch2.pth \
 	  --output_dir overlays_cmp \
 	  --num_samples 10
 
